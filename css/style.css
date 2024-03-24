@@ -2,9 +2,22 @@
 /* This code will show the logo and the animation time, opacity and displaying the widths during the 
 duartion of the animation. */
 
+@keyframes logo {
+    /* Start the animation at 25 pixels and 0 opacity */
+    0% {
+        width: 25px;
+        opacity: 0;
+    }
+    /* End the animation at 475 pixels and 1 opacity */
+    100% {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
 .logo {
-    width: 100px;
-    animation: spin 4s linear infinite;
+    /* Make animation last 5 seconds */
+    animation: logo 5s forwards;
 }
 
 /*
