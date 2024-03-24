@@ -1,0 +1,68 @@
+
+/* This code will show the logo and the animation time, opacity and displaying the widths during the 
+duartion of the animation. */
+
+.logo {
+    width: 100px;
+    animation: spin 4s linear infinite;
+}
+
+/*
+These CSS properties are used to define the font family and background color of the page.*/
+@font-face {
+    font-family: 'Poppins';
+    src: url('path/to/Poppins-Regular.woff2') format('woff2'),
+         url('path/to/Poppins-Regular.woff') format('woff');
+  }
+
+body {
+    font-family: 'Poppins', serif;
+    background-image: url(../images/concrete_seamless.png);
+    background-color:#f1f1f1;
+}
+/* The following CSS properties are used for the header and naviagtion displays.*/
+
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+.card > header {
+    background: #288088;
+    border: solid 2px #45ADAD;
+    padding: 20px 0;
+    border-radius: 50px 50px 0 0;
+}
+
+.card {
+    border-radius: 50px 50px 0 0;
+    flex-basis: 450px;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.pricing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.gallery img{
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
