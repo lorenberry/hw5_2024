@@ -2,7 +2,7 @@
 /* This code will show the logo and the animation time, opacity and displaying the widths during the 
 duartion of the animation. */
 
-@keyframes logo {
+@keyframes logoanimation {
     /* Start the animation at 25 pixels and 0 opacity */
     0% {
         width: 25px;
@@ -15,7 +15,7 @@ duartion of the animation. */
     }
 }
 
-.logo {
+#logo {
     /* Make animation last 5 seconds */
     animation: logo 5s forwards;
 }
