@@ -1,27 +1,25 @@
-
 /* This code will show the logo and the animation time, opacity and displaying the widths during the 
 duartion of the animation. */
 
-@keyframes logoanimation {
-    /* Start the animation at 25 pixels and 0 opacity */
-    0% {
-        width: 25px;
-        opacity: 0;
-    }
-    /* End the animation at 475 pixels and 1 opacity */
-    100% {
-        width: 475px;
-        opacity: 1;
-    }
+@keyframes logo {
+    /* The code below is used to signify the start width and opacity of the logo animation. */
+    from { width: 25px; opacity: 0; }
+     /* The code below is used to signify the start width and opacity of the logo animation. */
+    to{ width: 475px; opacity: 1; }
 }
-
+/* The code below is used to signify the duration of the logo animation. */
 #logo {
-    /* Make animation last 5 seconds */
-    animation: logo 5s forwards;
+    animation: logo 5s;
+}
+/* This code supports accessibility by reducing the motion of the logo animation. */
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
 }
 
-/*
-These CSS properties are used to define the font family and background color of the page.*/
+
+/*These CSS properties are used to define the font family and background color of the page.*/
 @font-face {
     font-family: 'Poppins';
     src: url('path/to/Poppins-Regular.woff2') format('woff2'),
@@ -34,17 +32,27 @@ body {
     background-color:#f1f1f1;
 }
 /* The following CSS properties are used for the header and naviagtion displays.*/
-
+/* This display of the header specfically indicates the position of the header/logo*/
 header {
     display: flex;
     align-items: center;
     flex-direction: column;
+    flex-wrap: wrap;
 }
-
+/*CSS properties for the navigation shows the display of the navigation links and the positioning */
 .nav_links {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
 }
+/*The navigation links color will remain constant even after the link has been visited */
+.nav_links a:visited{
+    color: blue;
+}
+
+
+/*This CSS property is used to demonstrate the flexbox properties of screen
+responsiveness for the navigation links */
 
 .card > header {
     background: #288088;
@@ -52,14 +60,14 @@ header {
     padding: 20px 0;
     border-radius: 50px 50px 0 0;
 }
-
+ /*Since the card is a flex container, the flexbox properties are used to align the elements in a column */
 .card {
     border-radius: 50px 50px 0 0;
     flex-basis: 450px;
     flex-grow: 1;
     flex-shrink: 1;
 }
-
+/*The flexbox properties are used to align all of the elements in a column */
 .pricing {
     display: flex;
     flex-direction: column;
@@ -67,15 +75,114 @@ header {
     align-content: center;
 }
 
+/* This section demonstrates the flexbox properties of the gallery images. */
 .gallery img{
     border: solid 10px #50C7C7;
     margin: 10px;
     width: 300px;
 }
-
+/*This flexbx property signifies the display and positioning of all of the gallery images */
 .gallery{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+/*This is the start of a media query that will be used to adjust the screen size of the page */
+/*The header is displayed as a flex container with the elements aligned in a row with a min-width of 900px */
+@media (min-width: 900px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
 
+    }
+    /*The navigation links are displayed in a row with a min-width of 900px and adjusting to screen size by using flex-grow*/
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-grow: 1;
+    }
+    /* This card class is displayed to have the elemenets in a row  with a basis of 275px */
+    .card {
+        border-radius: 50px 50px 0 0;
+        flex-basis: 275px;
+        flex-grow: 0;
+        flex-shrink: 1;
+        height: auto;
+    }
+    /* The pricing class have the elements aligned along the bottom, sharing the same width, and varying heights*/
+    .pricing {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+    /* The header is coded as a priority to be the only header to be styled (seperate from the other headers in the body) */
+    body > header:first-of-type {
+        /*The navigation bar will remain fixed at the top of the page, while the other elements will scroll */
+        position: fixed;
+        top: 0;
+        bottom: 100;
+        left: 0;
+        right: 100;
+        width: 100%;
+        height: auto;
+    /* The z-index is used to position the header above the other elements on the page */
+        z-index: 1000;
+}
+main{
+    /* The margin-top is used to create space between the header and the main content */
+    margin-top: 100px;
+}
+}
+/*This media query is used to adjust view when printing the page */
+@media print {
+    /* The body is displayed with the font family of Arial and the background image is removed */
+    body{
+        font-family: 'Arial', 'Helvetica';
+        background-image: none;
+        background-color:#f1f1f1;
+    }
+    /* Add space between navigation links evenly */
+    
+    nav{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    /* The navigation links are displayed with the elements aligned in a row with a lot of space */
+   
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    /*  The pricing class have the elements aligned along the bottom evenly */
+   
+    .pricing{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    .card{
+        border: solid 2px #45ADAD;
+        flex-basis: 325px;
+    }
+    /*The gallery display is removed when printing the page */
+    .gallery{
+        display: none;
+    }
+    /* The cards are displayed to have a "👍" after the second list item within*/
+    .card > ul li:nth-of-type(2)::after{
+        content:"👍";
+    }
+}
+
+
+
+
+ 
